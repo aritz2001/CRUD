@@ -1,19 +1,8 @@
 {
-    "Personas": [
-        {},
-        {
-            "id": 2,
-            "nombre": "aritz",
-            "apellido": "Santana",
-            "edad": 22,
-            "telefono": 123456789,
-            "direccion": "calle ave maria",
-            "email": "aritzsantanalopez@gmail.com"
-        }
-    ],
+    "Personas": [],
     "Configuraciones": [
         {
-            "contador_id_bbdd": 1
+            "contador_id_bbdd": 0
         }
     ]
 }

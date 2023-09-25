@@ -29,55 +29,58 @@ class Persona(object):
         self.direccion = direccion  #Creamos la variable de instancia  de la  dirección persona 
         self.email = email #Creamos la variable de instancia  del email de la persona 
 
-    def crear_persona(self): #Creamos el metodo para crear una persona
-        with open(fichero,"w") as abrir:
-            datos["Configuraciones"][0]["contador_id_bbdd"]
+    def crear_persona(self):
+        nueva_persona = {
+            "id": len(datos["Personas"]) + 1,  # Generate a unique ID for the new person
+            "nombre": self.nombre,
+            "apellido": self.apellido,
+            "edad": self.edad,
+            "telefono": self.telefono,
+            "direccion": self.direccion,
+            "email": self.email
+        }
+        datos['Personas'].append(nueva_persona)
+        for persona in datos["Personas"]:
+            if "id" not in persona:
+                persona["id"] = datos["Configuraciones"][0]["contador_id_bbdd"]
+    
+        with open(fichero, "w") as abrir:
             json.dump(datos, abrir, indent=4)
-            abrir.close()
-        #datos= last.id + 1
-            print("El contador esta ahora en: ", datos["Configuraciones"][0]["contador_id_bbdd"])            
-            Persona.identificador += 1 #Incrementamos el identificador
-
-            nueva_persona = Persona(
-                self.nombre, 
-                self.apellido, 
-                self.edad, 
-                self.telefono, 
-                self.direccion, 
-                self.email
-            ).__dict__
-        with open(fichero,"w") as modificar:
-            datos['Personas'].append(nueva_persona)
-            json.dump(datos, modificar, indent=4)
-            modificar.close()
-       # modificar_json()
-
-    def leer_persona(atr,valor): #Creamos el metodo para leer una persona
+    
+        print("El contador está ahora en: ", datos["Configuraciones"][0]["contador_id_bbdd"])
+          
+    def leer_persona(atr=None, valor=None): 
         resultados = {}
         for persona in datos["Personas"]:
-            if persona[atr] == valor or valor == "all":
+            if (atr is None or valor is None) or (atr == "all" and valor == "all"):
+            # If both atr and valor are None or "all," show all records.
                 indice = datos["Personas"].index(persona)
                 resultados[indice] = persona
-    
-        return (resultados)
+            elif atr in persona and persona[atr] == valor:
+                # If atr matches and the value matches, add to results.
+                indice = datos["Personas"].index(persona)
+                resultados[indice] = persona
 
-    def modificar_persona(id,atr,datos_persona): #Creamos el metodo para modificar una persona
+        for index, persona in resultados.items():
+            print(f'ID: {index}, Datos: {persona}')
+
+    def modificar_persona(id, atr, datos_persona):
         for persona in datos["Personas"]:
             if persona["id"] == id:
-                print(persona)
-                indice = datos["Personas"].index(persona)
-                datos["Personas"][indice][atr] = datos_persona
-                print(datos["Personas"][indice][atr])
-         #       modificar_json()
+                print("Before modification:", persona)
+                persona[atr] = datos_persona
+                print("After modification:", persona)
+    
+        with open(fichero, "w") as modificar:
+            json.dump(datos, modificar, indent=4)
 
     def borrar_persona(id): #Creamos el metodo para borrar una persona
         for persona in datos["Personas"]:
             if persona["id"] == id:
                 print("Se eliminara:", persona)
-                indice = datos["Personas"].index(persona)
-                datos["Personas"].pop(indice)
-         #       modificar_json()
-
+                datos["Personas"].remove(persona)
+        with open(fichero, "w") as modificar:
+            json.dump(datos, modificar, indent=4)
 
 while True:
     variable = int(input(print("Que deseas hacer? 1- Crear una persona \n 2- Leer el fichero \n 3-Modificar a una persona \n 4- Borrar una persona \n 5- Salir")))
@@ -91,21 +94,17 @@ while True:
         email = input("Ingrese su email: ")
         Persona(nombre, apellido, edad,telefono,direccion,email).crear_persona()
     elif variable == 2:
-        
-        Persona().leer_persona()
+        atr = input("Ingrese el atributo a filtrar (o 'all' para mostrar todo): ")
+        valor = input("Ingrese el valor del atributo (o 'all'): ")
+        Persona.leer_persona(atr,valor)
     elif variable == 3:
         id = int(input("Ingrese el id a modificar: "))
-        nombre = input("Ingrese su nombre: ")
-        apellido = input("Ingrese su apellido: ")
-        edad = int(input("Ingrese su edad: "))
-        telefono = int(input("Ingrese su telefono: "))
-        direccion = input("Ingrese su direccion: ")
-        email = input("Ingrese su email: ") 
-        datos_persona = [nombre, apellido, edad,telefono,direccion,email]
-        Persona(id,nombre, apellido, edad,telefono,direccion,email).modificar_persona(datos_persona)
+        atr = input("Ingrese el atributo a modificar (nombre, apellido, edad, telefono, direccion, email): ")
+        valor = input(f"Ingrese el nuevo valor para {atr}: ")
+        Persona.modificar_persona(id,atr,valor)
     elif variable == 4:
         id = int(input("Ingrese el id a borrar: "))
-        Persona(id).borrar_persona()
+        Persona.borrar_persona(id)
     elif variable >= 5 or variable == 0:
         print("Ha salido del programa")
         break
