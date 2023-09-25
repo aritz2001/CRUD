@@ -67,9 +67,9 @@ class Persona(object):
     def modificar_persona(id, atr, datos_persona):
         for persona in datos["Personas"]:
             if persona["id"] == id:
-                print("Before modification:", persona)
+                print("Antes de Modificarlo:", persona)
                 persona[atr] = datos_persona
-                print("After modification:", persona)
+                print("Despues de modificarlo:", persona)
     
         with open(fichero, "w") as modificar:
             json.dump(datos, modificar, indent=4)
