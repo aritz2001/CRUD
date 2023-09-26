@@ -52,7 +52,7 @@ class Persona(object):
     def leer_persona(atr=None, valor=None): 
         resultados = {}
         for persona in datos["Personas"]:
-            if (atr is None or valor is None) or (atr == "all" and valor == "all"):
+            if (atr is None or valor is None) or (atr == "" and valor == ""):
             # If both atr and valor are None or "all," show all records.
                 indice = datos["Personas"].index(persona)
                 resultados[indice] = persona
@@ -83,7 +83,7 @@ class Persona(object):
             json.dump(datos, modificar, indent=4)
 
 while True:
-    variable = int(input(print("Que deseas hacer? 1- Crear una persona \n 2- Leer el fichero \n 3-Modificar a una persona \n 4- Borrar una persona \n 5- Salir")))
+    variable = int(input(print("Que deseas hacer?\n 1- Crear una persona \n 2- Leer el fichero \n 3-Modificar a una persona \n 4- Borrar una persona \n 5- Salir")))
 
     if variable == 1:
         nombre = input("Ingrese su nombre: ")
@@ -94,8 +94,8 @@ while True:
         email = input("Ingrese su email: ")
         Persona(nombre, apellido, edad,telefono,direccion,email).crear_persona()
     elif variable == 2:
-        atr = input("Ingrese el atributo a filtrar (o 'all' para mostrar todo): ")
-        valor = input("Ingrese el valor del atributo (o 'all'): ")
+        atr = ""
+        valor = ""
         Persona.leer_persona(atr,valor)
     elif variable == 3:
         id = int(input("Ingrese el id a modificar: "))

@@ -1,5 +1,15 @@
 {
-    "Personas": [],
+    "Personas": [
+        {
+            "id": 1,
+            "nombre": "Aritz",
+            "apellido": "Santana L\u00f3pez",
+            "edad": 22,
+            "telefono": 630503288,
+            "direccion": "Calle Carlos Gangoiti 37 3 dcha",
+            "email": "aritzsan01@gmail.com"
+        }
+    ],
     "Configuraciones": [
         {
             "contador_id_bbdd": 0
