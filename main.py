@@ -48,11 +48,9 @@ class Persona(object):
         resultados = {}
         for persona in datos["Personas"]:
             if (atr is None or valor is None) or (atr == "" and valor == ""):
-            # If both atr and valor are None or "all," show all records.
                 indice = datos["Personas"].index(persona)
                 resultados[indice] = persona
             elif atr in persona and persona[atr] == valor:
-                # If atr matches and the value matches, add to results.
                 indice = datos["Personas"].index(persona)
                 resultados[indice] = persona
 
