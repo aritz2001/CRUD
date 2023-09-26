@@ -1,7 +1,6 @@
 import os   
 import json
 
-
 archivo = os.path.dirname(os.path.abspath(__file__))
 fichero = os.path.join(archivo + '/bbdd/' 'base_datos.json')
 def leer_json():
@@ -12,22 +11,18 @@ def leer_json():
     
 datos = leer_json()
 
-#def modificar_json():
-#    with open(fichero,"r") as alterar:
- #       json.dump(datos, alterar, indent=4)
-  #      alterar.close()
-
 class Persona(object):
     identificador = datos["Configuraciones"][0]["contador_id_bbdd"]
     def __init__(self, nombre, apellido, edad,telefono,direccion,email): #Creamos el constructor de la clase
         print("La posicion del contador es:", Persona.identificador)
-        self.id = Persona.identificador #Creamos la variable de instancia del identificador de la persona 
-        self.nombre = nombre #Creamos la variable de instancia del nombre de la persona 
-        self.apellido = apellido #Creamos la variable de instancia del apellido de la persona 
-        self.edad = edad #Creamos la variable de instancia de la edad de la persona 
-        self.telefono = telefono #Creamos la variable de instancia del telefono de la persona 
-        self.direccion = direccion  #Creamos la variable de instancia  de la  dirección persona 
-        self.email = email #Creamos la variable de instancia  del email de la persona 
+        #Creamos las variables de instancia
+        self.id = Persona.identificador 
+        self.nombre = nombre
+        self.apellido = apellido 
+        self.edad = edad 
+        self.telefono = telefono 
+        self.direccion = direccion  
+        self.email = email 
 
     def crear_persona(self):
         nueva_persona = {
