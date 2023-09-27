@@ -26,7 +26,7 @@ class Persona(object):
 
     def crear_persona(self):
         nueva_persona = {
-            "id": len(datos["Personas"]) + 1,  # Generate a unique ID for the new person
+            "id": len(datos["Personas"]) + 1,  # Generamos el ID de la personaa
             "nombre": self.nombre,
             "apellido": self.apellido,
             "edad": self.edad,
@@ -76,7 +76,7 @@ class Persona(object):
             json.dump(datos, modificar, indent=4)
 
 while True:
-    variable = int(input(print("Que deseas hacer?\n 1- Crear una persona \n 2- Leer el fichero \n 3-Modificar a una persona \n 4- Borrar una persona \n 5- Salir")))
+    variable = int(input("Que deseas hacer?\n 1- Crear una persona \n 2- Leer el fichero \n 3-Modificar a una persona \n 4- Borrar una persona \n 5- Salir \n"))
 
     if variable == 1:
         nombre = input("Ingrese su nombre: ")
