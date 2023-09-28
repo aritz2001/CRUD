@@ -17,7 +17,7 @@ class Persona(object):
 
     def crear_persona(self):
         nueva_persona = {
-            "id": len(informacion.datos["Personas"]) + 1,  # Generamos el ID de la personaa
+            "id": len(informacion.datos["Personas"]) + 1,  # Generamos el nuevo ID de la personaa
             "nombre": self.nombre,
             "apellido": self.apellido,
             "edad": self.edad,
@@ -39,12 +39,8 @@ class Persona(object):
             if (atr is None or valor is None) or (atr == "" and valor == ""):
                 indice = informacion.datos["Personas"].index(persona)
                 resultados[indice] = persona
-            elif atr in persona and persona[atr] == valor:
-                indice = informacion.datos["Personas"].index(persona)
-                resultados[indice] = persona
-
-        for index, persona in resultados.items():
-            print(f'ID: {index}, Datos: {persona}')
+        for persona in resultados.items():
+            print(f'Datos: {persona}')
 
     def modificar_persona(id, atr, datos_persona):
         for persona in informacion.datos["Personas"]:
