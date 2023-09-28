@@ -1,15 +1,5 @@
 {
-    "Personas": [
-        {
-            "id": 1,
-            "nombre": "aritz",
-            "apellido": "santana lopez",
-            "edad": 22,
-            "telefono": 123456789,
-            "direccion": "xdcfvybu",
-            "email": "rcytguhi"
-        }
-    ],
+    "Personas": [],
     "Configuraciones": [
         {
             "contador_id_bbdd": 0

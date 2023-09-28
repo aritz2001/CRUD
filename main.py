@@ -24,5 +24,5 @@ while True:
         id = int(input("Ingrese el id a borrar: "))
         Persona.borrar_persona(id)
     elif variable >= 5 or variable == 0:
-        print("Ha salido del programa")
+        print("Has salido del programa")
         break
