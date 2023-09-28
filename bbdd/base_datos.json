@@ -8,6 +8,51 @@
             "telefono": 630503288,
             "direccion": "Calle Carlos Gangoiti 37 3 dcha",
             "email": "aritzsan01@gmail.com"
+        },
+        {
+            "nombre": "aitor",
+            "apellido": "santana",
+            "edad": 22,
+            "telefono": 123456789,
+            "direccion": "aa",
+            "email": "aitorsantana@gmail.com",
+            "id": 0
+        },
+        {
+            "id": 3,
+            "nombre": "aitor",
+            "apellido": "santana",
+            "edad": 22,
+            "telefono": 123456789,
+            "direccion": "aa",
+            "email": "aitorsantana@gmail.com"
+        },
+        {
+            "id": 4,
+            "nombre": "rctyghuijo",
+            "apellido": "crctyghuio",
+            "edad": 231,
+            "telefono": 1234567890,
+            "direccion": "xercytuyguiio",
+            "email": "zsxdtcyvui"
+        },
+        {
+            "id": 5,
+            "nombre": "wzexrtcyuio",
+            "apellido": "zewexrcytvuioip",
+            "edad": 22,
+            "telefono": 123456789,
+            "direccion": "zrxedrtcytvubi",
+            "email": "xetrcyvubi"
+        },
+        {
+            "id": 6,
+            "nombre": "dwa",
+            "apellido": "wda",
+            "edad": 22,
+            "telefono": 231,
+            "direccion": "daw",
+            "email": "dwa"
         }
     ],
     "Configuraciones": [
